@@ -1,0 +1,6 @@
+Data Structure points
+
+collection's method:
+add(E e), addAll(collection), clear(), iterator(), isEmpty(), size(), remove(Object o), removeAll(collection), toArray()
+
+Java: public, private, protected, default(在不写明的情况下默认是什么)

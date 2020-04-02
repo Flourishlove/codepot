@@ -9,4 +9,6 @@
 重复子问题是动态规划常见的以空间换时间，只有在有大量重复计算的时候，才有存储的必要。而向merge sort就没有动态规划的必要，而只是递归
 
 3. 使用递归的时候，如果遇上数组，比如backtrack，那么在递归函数传一个数组和对应的开始结束index，可以减少很多不必要的copy
-4.
+4. 几种用stack的题型，都是能够化为next greater number的题型
+    如654.Maximum Binary Tree，1130.min_cost_tree_from_leaf_value
+
