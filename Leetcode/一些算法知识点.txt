@@ -12,3 +12,8 @@
 4. 几种用stack的题型，都是能够化为next greater number的题型
     如654.Maximum Binary Tree，1130.min_cost_tree_from_leaf_value
 
+对于数组排序，可以直接用 Arrays.sort(intervals, (i1, i2) -> Integer.compare(i1[0], i2[0]));
+对于数组初始化，可以直接用 Arrays.fill(nums, 1);
+
+初始化二维数组，双大括号
+int[][] direction = {{0,1}, {1,0}, {0,-1}, {-1,0}};
