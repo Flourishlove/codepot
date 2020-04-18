@@ -5,7 +5,7 @@ class Solution {
     public int[] nextGreaterElements(int[] nums) {
         Deque<Integer> sk = new LinkedList<>();
         int[] result = new int[nums.length];
-        for(int i = 0; i < nums.length; i++) result[i] = -1;
+        for(int i = 0; i < nums.length; i++) result[i] = -1;   // Arrays.fill(result, -1);
 
         for(int i = 0; i < nums.length; i++){
             while(!sk.isEmpty() && nums[sk.peek()] < nums[i]) result[sk.pop()] = nums[i];

@@ -1,5 +1,5 @@
 // meeting rooms 2, 求最少的会议室数量，能满足所有会议的需求
-// intervals按照开始时间排序遍历，但是放入的堆按照结束时间排序
+// intervals按照开始时间排序遍历，但是放入的堆按照结束时间排序,途中需要maintain一个pq的最大值，就是最少需要的会议室
 
 /**
  * Definition for an interval.
@@ -11,19 +11,23 @@
  * }
  */
 class Solution {
-    public int minMeetingRooms(Interval[] intervals) {
-        Arrays.sort(intervals, (a,b)->(a.start - b.start));
-        PriorityQueue<Interval> heap = new PriorityQueue<>((a,b)->(a.end - b.end));
+    public int minMeetingRooms(int[][] intervals) {
+        if(intervals == null || intervals.length == 0) return 0;
 
-        if(intervals.length == 0) return 0;
-        heap.offer(intervals[0]);
-        for(int i = 1; i < intervals.length; i++){
-            Interval early = heap.peek();
-            if(early.end <= intervals[i].start){
-                heap.poll();
+        Arrays.sort(intervals, (a,b)->(Integer.compare(a[0], b[0])));
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+
+        int max = 0;
+        for(int[] interval : intervals){
+            if(pq.isEmpty()) pq.add(interval[1]);
+            else{
+                if(pq.peek() <= interval[0]) {
+                    pq.poll();
+                }
+                pq.add(interval[1]);
             }
-            heap.offer(intervals[i]);
+            max = Math.max(max, pq.size());
         }
-        return heap.size();
+        return max;
     }
 }
