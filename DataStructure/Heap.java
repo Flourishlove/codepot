@@ -43,7 +43,7 @@ public class Heap<T extends Comparable<T>>{
         while(l < items.size()){
             int r = l+1;
             int max = l;
-            if(r < items.size()){. //has right child
+            if(r < items.size()){ //has right child
                 if(items.get(r).compareTo(items.get(l)) > 0) max++;
             }
 
